@@ -1,18 +1,17 @@
 {
   "name": "todolistpoc",
   "version": "1.0.0",
-  "description": "A POC project for upcoming OnSolve ReactJS UI/UX project",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
-    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --content-base src/ --inline --hot --port 4800",
-    "build:prod": "webpack -p && cp src\\index.html dist\\index.html"
+    "start": "webpack-dev-server --mode development --open --hot --port 4800",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/debnathrajdeep/todolistpoc.git"
   },
-  "author": "RapidValue",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/debnathrajdeep/todolistpoc/issues"
@@ -23,10 +22,13 @@
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3"

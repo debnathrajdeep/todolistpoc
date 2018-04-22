@@ -1,3 +1,5 @@
-//import abc from "webpack";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './component/App';
 
-console.log("kkk");
+ReactDOM.render(<App />, document.getElementById('app'));
