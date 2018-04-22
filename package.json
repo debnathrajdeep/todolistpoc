@@ -4,7 +4,9 @@
   "description": "A POC project for upcoming OnSolve ReactJS UI/UX project",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "npm run build",
+    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --content-base src/ --inline --hot --port 4800",
+    "build:prod": "webpack -p && cp src\\index.html dist\\index.html"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,14 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^3.1.3"
   }
 }
