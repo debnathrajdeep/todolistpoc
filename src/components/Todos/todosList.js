@@ -1,8 +1,8 @@
-// import _ from 'lodash'
+import _ from 'lodash'
 import React from 'react'
 import TodosListHeader from './todos-List-Header'
 import TodosListItem from './todos-list-item';
-// import './TodosList.css'
+import '../todos-css/TodosList.css'
 export default class TodosList extends React.Component {
     componentWillMount() {
         this.setState({
@@ -27,8 +27,7 @@ export default class TodosList extends React.Component {
                 date={item.DateandTime} saveTitle={this.props.saveTitle} deleteTitle={this.props.deleteTitle} />)
         );
     }
-
-
+    
     render() {
         return (
             <div className="container my-div">

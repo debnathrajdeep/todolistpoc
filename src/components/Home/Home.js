@@ -14,7 +14,6 @@ export default class Home extends Component {
                         </div>
                         <div className="panel panel-primary">
                             <h4>Recent Todos</h4>
-
                             <RecentTodoList />
                         </div>
                     </div>

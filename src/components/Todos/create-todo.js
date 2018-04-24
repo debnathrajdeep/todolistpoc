@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import './create-todo.css'
+import '../todos-css/create-todo.css'
 import DateTimePicker from 'react-datetime-picker';
 
 export default class CreateTodo extends Component {
@@ -32,9 +32,8 @@ export default class CreateTodo extends Component {
                                 onChange={data => this.onChange(data)}
                                 value={this.state.date}
                             />
-
-
                         </div>
+                        
                         <div className="col-md-4">
                             <button className="btn btn-primary btn btn-md" id="submitButton">Create</button>
                         </div>
