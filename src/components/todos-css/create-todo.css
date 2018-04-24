@@ -1,0 +1,19 @@
+input{
+    float:left;
+    width:150px;
+    margin-bottom:10px; 
+    }
+    #submitButton{
+        margin-bottom:10px; 
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-right: 4px;
+    }
+    label{
+        float: right;
+    }
+
+    form{
+        margin-top: 40px;
+    }
+   
