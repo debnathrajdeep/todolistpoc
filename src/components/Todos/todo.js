@@ -1,23 +1,28 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import React from 'react'
 import _ from 'lodash'
 import TodosList from './todosList'
 import CreateTodo from './create-todo'
 import Data from './data'
-import { browserHistory} from 'react-router'
-
+import { browserHistory } from 'react-router'
 
 export default class Todo extends React.Component {
     constructor(props) {
-
         super(props);
         let todos = Data.getData();
         this.state = {
             todos
         }
     }
+
     onNavigateHome() {
         browserHistory.push("/home/1");
-        }
+    }
+
     render() {
         return (
             <div>
@@ -25,7 +30,7 @@ export default class Todo extends React.Component {
                 <TodosList todos={this.state.todos}
                     saveTitle={this.saveTitle.bind(this)}
                     deleteTitle={this.deleteTitle.bind(this)} />
-                    <button onClick={this.onNavigateHome} className="btn btn-primary">Go Home!</button>
+                <button onClick={this.onNavigateHome} className="btn btn-primary">Go Home!</button>
             </div>
         );
     }
@@ -39,9 +44,9 @@ export default class Todo extends React.Component {
             todos: this.state.todos
         });
     }
+
     saveTitle(oldTitle, newTitle) {
         const foundTodo = _.find(this.state.todos, todo => todo.Title === oldTitle);
-        //const foundTodo=this.state.todos.find(todo=>{return todo.Title===oldTitle})
         foundTodo.Title = newTitle;
         this.setState({ todos: this.state.todos });
     }
@@ -52,14 +57,4 @@ export default class Todo extends React.Component {
             todos: this.state.todos
         });
     }
-
-    // delete(item){
-    //   const newState = this.state.todos.slice();
-    //   if (newState.indexOf(item) > -1) {
-    //     newState.splice(newState.indexOf(item), 1);
-    //     this.setState({todos: newState})
-    //   }
-    // }
-
-
 }

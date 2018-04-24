@@ -1,3 +1,9 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
+
 import React, { Component } from 'react';
 import RecentTodoList from './RecentTodos'
 import ListItems from './ListItems';
@@ -7,7 +13,6 @@ export default class Home extends Component {
         return (
             <div>
                 <div className="container">
-
                     <div className="row">
                         <div className="col-sm-6" >
                             <h2>Welcome</h2>
@@ -23,5 +28,3 @@ export default class Home extends Component {
         )
     }
 }
-
-

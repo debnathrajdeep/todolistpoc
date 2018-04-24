@@ -1,11 +1,13 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import React from 'react'
 import ListItems from './ListItems'
 import Data from '../Todos/data'
 
-
 export default class RecentTodoList extends React.Component {
-
-
     constructor(props) {
         super(props);
         let todos = Data.getData();
@@ -16,20 +18,17 @@ export default class RecentTodoList extends React.Component {
 
     render() {
         var items =
-            <div> 
-            {this.state.todos.map((item, index) => <ListItems skey={index} title={item.Title}
-                date={item.DateandTime} />
-            )}
+            <div>
+                {this.state.todos.map((item, index) => <ListItems skey={index} title={item.Title}
+                    date={item.DateandTime} />
+                )}
             </div>
-
         return (
             <div>
                 <ul>
                     {items}
                 </ul>
-            </div>);
+            </div>
+        );
     }
-
 }
-
-

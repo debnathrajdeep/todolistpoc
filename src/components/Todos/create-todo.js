@@ -1,3 +1,8 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import React, { Component } from 'react'
 import DateTimePicker from 'react-datetime-picker';
 
@@ -28,16 +33,13 @@ export default class CreateTodo extends Component {
             errors.timeErrorMessage = 'please enter time';
         }
 
-
         this.setState({
             errorMessage: errors.errorMessage,
             timeError: errors.timeErrorMessage
         });
-
-        console.log(this.state);
         return isError;
-
     }
+
     handleCreate(event) {
         debugger;
         event.preventDefault();
@@ -46,9 +48,7 @@ export default class CreateTodo extends Component {
             this.props.createTask(this.refs.createInputOfTitle.value, this.refs.inputTime.value);
             console.log(this.state.selectValue);
             this.refs.createInputOfTitle.value = '';
-
         }
-
     }
 
     render() {
@@ -59,28 +59,27 @@ export default class CreateTodo extends Component {
                         <div className="col-md-2">
                             <label>Title :</label>
                         </div>
-                        <div className="col-md-2">
 
-                            <input name="title" type="text" placeholder="Title" ref="createInputOfTitle"
-                            />
+                        <div className="col-md-2">
+                            <input name="title" type="text" placeholder="Title" ref="createInputOfTitle"/>                            
                             <span>{this.state.errorMessage}</span>
                         </div>
+
                         <div className="col-md-2">
                             <label>Date :</label>
                         </div>
-                        <div className="col-md-2">
 
+                        <div className="col-md-2">
                             <input name="date" type="text" placeholder="Time" ref="inputTime" />
                             <span>{this.state.timeError}</span>
                         </div>
+
                         <div className="col-md-4">
                             <button className="btn btn-primary btn btn-md" id="submitButton">Create</button>
                         </div>
                     </div>
                 </div>
-
             </form>
         );
     }
-
 }

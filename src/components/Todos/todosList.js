@@ -1,8 +1,14 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import _ from 'lodash'
 import React from 'react'
 import TodosListHeader from './todos-List-Header'
 import TodosListItem from './todos-list-item';
 import '../todos-css/TodosList.css'
+
 export default class TodosList extends React.Component {
     componentWillMount() {
         this.setState({
@@ -16,18 +22,13 @@ export default class TodosList extends React.Component {
         })
     }
 
-    componentWillUpdate() {
-
-    }
-
     renderItems() {
         return (
-            //    _.map(this.props.todos), (todo,index)=> <TodosListItem key={index} task={todo.task}/>
             this.state.todos.map((item, index) => <TodosListItem key={index} title={item.Title}
-                date={item.DateandTime} saveTitle={this.props.saveTitle} deleteTitle={this.props.deleteTitle} />)
+            date={item.DateandTime} saveTitle={this.props.saveTitle} deleteTitle={this.props.deleteTitle} />)
         );
     }
-    
+
     render() {
         return (
             <div className="container my-div">
@@ -40,5 +41,4 @@ export default class TodosList extends React.Component {
             </div>
         );
     }
-
 }

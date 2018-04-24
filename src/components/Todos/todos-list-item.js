@@ -1,6 +1,10 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import React from 'react'
 import '../todos-css/todos-list-item.css'
-
 
 export default class TodosListItem extends React.Component {
     constructor(props) {
@@ -16,7 +20,7 @@ export default class TodosListItem extends React.Component {
         if (this.state.isEditing) {
             return (
                 <td>
-                    <input type="text"  defaultValue={title} ref="editInput"  />
+                    <input type="text" defaultValue={title} ref="editInput" />
                 </td>
             );
         }
@@ -51,17 +55,20 @@ export default class TodosListItem extends React.Component {
             </tr>
         );
     }
+
     onEditClick() {
         this.setState({
             isEditing: true
         }
         )
     };
+
     onCancelClick() {
         this.setState({
             isEditing: false
         });
     }
+
     onSaveClick(event) {
         event.preventDefault();
         const error = validate();
@@ -71,12 +78,5 @@ export default class TodosListItem extends React.Component {
             this.props.saveTitle(oldTitle, newTitle);
             this.setState({ isEditing: false });
         }
-        else
-        {
-
-        }
-
     }
-
-
 }

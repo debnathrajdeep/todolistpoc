@@ -1,3 +1,8 @@
+/**
+ * @description :
+ * @date:24/04/2018
+ * @author:RapidValue
+ */
 import React from 'react'
 
 const todos = [
@@ -20,8 +25,6 @@ const todos = [
 ];
 
 export default class Data extends React.Component {
-
-
     static getData() {
         return (
             todos
