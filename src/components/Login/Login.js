@@ -7,10 +7,6 @@ import React from 'react'
 import { browserHistory, Link } from 'react-router'
 
 export default class Login extends React.Component {
-  onNavigateHome() {
-    browserHistory.push("home");
-  }
-
   render() {
     return (
       <form>

@@ -13,13 +13,10 @@ import Root from '../Root'
 import Login from '../components/Login/login'
 import { browserHistory, Router, Route, IndexRoute, Link, Switch } from 'react-router'
 
-
 export default class App extends Component {
-
   render() {
     return (
       <Router history={browserHistory}>
-
         <Route path="/" component={Root} >
           <IndexRoute component={Login} />
           <Route path="/todo/:id" component={Todo} />

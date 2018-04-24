@@ -7,8 +7,7 @@ import React from "react";
 import { Link } from 'react-router'
 
 export default class Root extends React.Component {
-
-    renderHeader() {
+        renderHeader() {
         if (this.props.router.params.id === undefined) {
             return (
                 <div></div>
