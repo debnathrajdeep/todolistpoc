@@ -21,7 +21,7 @@ export default class Todo extends React.Component {
     render() {
         return (
             <div>
-                <CreateTodo createTask={(title, date) => this.createTask(title, date)} />
+                <CreateTodo createTask={(title, time) => this.createTask(title, time)} />
                 <TodosList todos={this.state.todos}
                     saveTitle={this.saveTitle.bind(this)}
                     deleteTitle={this.deleteTitle.bind(this)} />

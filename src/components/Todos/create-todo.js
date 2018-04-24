@@ -1,16 +1,55 @@
 import React, { Component } from 'react'
-// import './create-todo.css'
 import DateTimePicker from 'react-datetime-picker';
 
 export default class CreateTodo extends Component {
     constructor(props) {
         super(props);
-        this.state = { date: new Date() };
+        this.state = {
+            timeError: '', errorMessage: ""
+        };
     };
 
-    onChange(data) {
-        this.setState({ date: data })
-    };
+    validate = () => {
+        debugger;
+        let isError = false;
+        const errors = {
+            errorMessage: "",
+            timeErrorMessage: ""
+        };
+        let title = this.refs.createInputOfTitle.value.length;
+        let time = this.refs.inputTime.value.length;
+
+        if (title < 5) {
+            isError = true;
+            errors.errorMessage = 'title must be more than 5 char';
+        }
+
+        if (time == 0) {
+            errors.timeErrorMessage = 'please enter time';
+        }
+
+
+        this.setState({
+            errorMessage: errors.errorMessage,
+            timeError: errors.timeErrorMessage
+        });
+
+        console.log(this.state);
+        return isError;
+
+    }
+    handleCreate(event) {
+        debugger;
+        event.preventDefault();
+        const error = this.validate();
+        if (!error) {
+            this.props.createTask(this.refs.createInputOfTitle.value, this.refs.inputTime.value);
+            console.log(this.state.selectValue);
+            this.refs.createInputOfTitle.value = '';
+
+        }
+
+    }
 
     render() {
         return (
@@ -22,18 +61,17 @@ export default class CreateTodo extends Component {
                         </div>
                         <div className="col-md-2">
 
-                            <input type="text" placeholder="Title" ref="createInputOfTitle" />
+                            <input name="title" type="text" placeholder="Title" ref="createInputOfTitle"
+                            />
+                            <span>{this.state.errorMessage}</span>
                         </div>
                         <div className="col-md-2">
                             <label>Date :</label>
                         </div>
                         <div className="col-md-2">
-                            <DateTimePicker
-                                onChange={data => this.onChange(data)}
-                                value={this.state.date}
-                            />
 
-
+                            <input name="date" type="text" placeholder="Time" ref="inputTime" />
+                            <span>{this.state.timeError}</span>
                         </div>
                         <div className="col-md-4">
                             <button className="btn btn-primary btn btn-md" id="submitButton">Create</button>
@@ -45,11 +83,4 @@ export default class CreateTodo extends Component {
         );
     }
 
-    handleCreate(event) {
-        event.preventDefault();
-        console.log(this.state.date.toDateString());
-        this.props.createTask(this.refs.createInputOfTitle.value, this.state.date.toDateString());
-        this.refs.createInputOfTitle.value = '';
-        this.setState({ date: new Date() });
-    }
 }
