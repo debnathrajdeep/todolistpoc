@@ -4,13 +4,13 @@
  * @author:RapidValue
  */
 import React, { Component } from 'react'
-import DateTimePicker from 'react-datetime-picker';
 
 export default class CreateTodo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            timeError: '', errorMessage: ""
+            timeError: '', 
+            errorMessage: ""
         };
     };
 
@@ -46,7 +46,6 @@ export default class CreateTodo extends Component {
         const error = this.validate();
         if (!error) {
             this.props.createTask(this.refs.createInputOfTitle.value, this.refs.inputTime.value);
-            console.log(this.state.selectValue);
             this.refs.createInputOfTitle.value = '';
         }
     }
