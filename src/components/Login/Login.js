@@ -3,7 +3,7 @@ import Home from '../Home/Home'
 
 
 const  Welcome = (username)=> {
-    // This is a dumb "stateless" component
+    
     return (
       <div>
         Welcome <strong>{username}</strong>

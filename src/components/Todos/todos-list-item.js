@@ -6,7 +6,8 @@ export default class TodosListItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isEditing: false
+            isEditing: false,
+            titleError: ""
         };
     }
 
@@ -15,7 +16,7 @@ export default class TodosListItem extends React.Component {
         if (this.state.isEditing) {
             return (
                 <td>
-                    <input type="text" defaultValue={title} ref="editInput" />
+                    <input type="text"  defaultValue={title} ref="editInput"  />
                 </td>
             );
         }
@@ -63,10 +64,19 @@ export default class TodosListItem extends React.Component {
     }
     onSaveClick(event) {
         event.preventDefault();
-        const oldTitle = this.props.title;
-        const newTitle = this.refs.editInput.value;
-        this.props.saveTitle(oldTitle, newTitle);
-        this.setState({ isEditing: false });
+        const error = validate();
+        if (!error) {
+            const oldTitle = this.props.title;
+            const newTitle = this.refs.editInput.value;
+            this.props.saveTitle(oldTitle, newTitle);
+            this.setState({ isEditing: false });
+        }
+        else
+        {
+
+        }
+
     }
+
 
 }
