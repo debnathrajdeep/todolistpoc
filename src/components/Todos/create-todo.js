@@ -15,30 +15,33 @@ export default class CreateTodo extends Component {
     render() {
         return (
             <form onSubmit={this.handleCreate.bind(this)}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-2">
-                            <label>Title :</label>
-                        </div>
-                        <div className="col-md-2">
 
-                            <input type="text" placeholder="Title" ref="createInputOfTitle" />
+                <div class="container">
+                    <div class="row">
+                        <div class="col-5">
+                            <input type="text" className="form-control" placeholder="Title" ref="createInputOfTitle" />
+
                         </div>
-                        <div className="col-md-2">
-                            <label>Date :</label>
+                        <div class="col-3">
+
+                            <select className="form-control" placeholder="Priority">
+                                <option value="volvo">1</option>
+                                <option value="saab">2</option>
+                                <option value="mercedes">3</option>
+                                <option value="audi">4</option>
+                            </select>
                         </div>
-                        <div className="col-md-2">
-                            <DateTimePicker
-                                onChange={data => this.onChange(data)}
-                                value={this.state.date}
-                            />
-                        </div>
-                        
-                        <div className="col-md-4">
-                            <button className="btn btn-primary btn btn-md" id="submitButton">Create</button>
+                        <div>
+                            <label for="exampleInputPard1"></label>
+                            <button className="btn btn-primary mb-2" id="submitButton">Create</button>
+
                         </div>
                     </div>
+
                 </div>
+
+                <br />
+                <br />
 
             </form>
         );

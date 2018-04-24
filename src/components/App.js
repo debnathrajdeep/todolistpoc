@@ -12,20 +12,42 @@ export default class App extends Component {
   render() {
 
     return (
-      <HashRouter>
-        <div>
-          <center>
-            <h1>TODO APP</h1>
-          </center>
-          <ul className="header">
-            <li><NavLink to="/Home">Home</NavLink></li>
-            <li><NavLink to="/todo">ToDo-list</NavLink></li>
-          </ul>
-          <div className="content">
-            <Route path="/home" component={Home} />
-            <Route path="/todo" component={Todo} />
-          </div>
-        </div>
+      <HashRouter>  
+
+        <nav className="navbar navbar-light  bg-light">
+        <ul className="nav nav-tabs">
+        <li className="nav-item">
+      
+          <a className="navbar-brand" href="#">
+          <span className="navbar-brand mb-0 h1">Rapid Value Solutions</span>          
+          </a>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link active"  to="/Home">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink  className="nav-link"  to="/todo">ToDo-list</NavLink>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      
+      <div>
+      <center>
+        <h1>TODO APP</h1>
+      </center>
+      <div className="content">
+        <Route path="/home" component={Home} />
+        <Route path="/todo" component={Todo} />
+      </div>
+    </div>
+    
+      </nav>
+      
+           
+    
+  
       </HashRouter>
     );
   }
