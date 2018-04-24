@@ -4,9 +4,6 @@ import TodosListHeader from './todos-List-Header'
 import TodosListItem from './todos-list-item';
 // import './TodosList.css'
 export default class TodosList extends React.Component {
-    // constructor(){
-    //     super();       
-    // }
     componentWillMount() {
         this.setState({
             todos: this.props.todos

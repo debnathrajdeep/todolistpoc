@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1796bfea39567209891446ffc63ef31bb78f65c9
 import React, { Component } from 'react';
 import TodosList from '../components/Todos/todosList'
 import CreateTodo from './Todos/create-todo'
