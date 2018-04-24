@@ -35,14 +35,14 @@ export default class App extends Component {
       
       <div>
       <center>
-        <h1>TODO APP</h1>
+       
       </center>
       <div className="content">
         <Route path="/home" component={Home} />
         <Route path="/todo" component={Todo} />
       </div>
     </div>
-    
+
       </nav>
       
            
