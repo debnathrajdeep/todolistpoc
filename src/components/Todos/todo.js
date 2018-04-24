@@ -1,8 +1,11 @@
 import React from 'react'
 import _ from 'lodash'
-import TodosList from './TodosList'
+import TodosList from './todosList'
 import CreateTodo from './create-todo'
 import Data from './data'
+import { browserHistory} from 'react-router'
+
+
 export default class Todo extends React.Component {
     constructor(props) {
 
@@ -12,6 +15,9 @@ export default class Todo extends React.Component {
             todos
         }
     }
+    onNavigateHome() {
+        browserHistory.push("/home/1");
+        }
     render() {
         return (
             <div>
@@ -19,6 +25,7 @@ export default class Todo extends React.Component {
                 <TodosList todos={this.state.todos}
                     saveTitle={this.saveTitle.bind(this)}
                     deleteTitle={this.deleteTitle.bind(this)} />
+                    <button onClick={this.onNavigateHome} className="btn btn-primary">Go Home!</button>
             </div>
         );
     }
