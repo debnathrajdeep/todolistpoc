@@ -19,6 +19,10 @@
       height:85%;
       padding:2%;
   }
+
+  .iconsize{
+      width:25px;
+  }
   paddingleft{
     padding-left:35px;
   }

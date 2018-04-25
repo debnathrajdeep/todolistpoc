@@ -33,15 +33,15 @@ export default class TodosListItem extends React.Component {
         if (this.state.isEditing) {
             return (
                 <td>
-                    <button className="btn btn-warning btn btn-sm" onClick={this.onSaveClick.bind(this)}>Save</button>
-                    <button className="btn btn-warning btn btn-sm" onClick={this.onCancelClick.bind(this)}>Cancel</button>
+                    <img className="iconsize" src="../../../src/img/ic_save_48px.png" onClick={this.onSaveClick.bind(this)}/>
+                    <img className="iconsize" src="../../../src/img/ic_cancel.png" onClick={this.onCancelClick.bind(this)}/>                                        
                 </td>
             );
         }
         return (
             <td>
-                <button className="btn btn-danger btn btn-sm " onClick={this.onEditClick.bind(this)}>Edit</button>
-                <button className="btn btn-danger btn btn-sm" onClick={this.props.deleteTitle.bind(this, this.props.title)}>Delete</button>
+                <img className="iconsize" src="../../../src/img/ic_edit_48px.png" onClick={this.onEditClick.bind(this)}/>
+                <img className="iconsize" onClick={this.props.deleteTitle.bind(this, this.props.title)} src="../../../src/img/ic_delete_48px.png"/>
             </td>
         );
     }
@@ -71,7 +71,7 @@ export default class TodosListItem extends React.Component {
 
     onSaveClick(event) {
         event.preventDefault();
-        const error = validate();
+        const error = false;//validate();
         if (!error) {
             const oldTitle = this.props.title;
             const newTitle = this.refs.editInput.value;
