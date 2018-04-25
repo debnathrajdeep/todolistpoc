@@ -5,6 +5,9 @@
  */
 import React from "react";
 import { Link } from 'react-router'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
+import './index.css';
 
 export default class Root extends React.Component {
         renderHeader() {
@@ -16,16 +19,21 @@ export default class Root extends React.Component {
 
         return (
             <div>
-                <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
-                        <ul className="header">
-                            <li><Link to='/home/1'>Home</Link></li>
-                            <li><Link to='/todo/1'>ToDo-list</Link></li>
-                            <li><Link to='/'>Log out</Link></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr />
+                
+                <nav className="navbar navbar-expand-lg navbar-primary bg-primary">
+                <ul className="nav nav-tabs">
+                <li className="nav-item">
+                <Link to='/home/1'>Home</Link>
+                </li>
+                <li className="nav-item">
+                <Link to='/todo/1'>ToDo-list</Link>
+                </li>
+                <li className="nav-item"> 
+                <Link to='/'>Log out</Link>
+                </li>
+                </ul>
+                    </nav>
+               
             </div>
         );
     }
@@ -34,7 +42,7 @@ export default class Root extends React.Component {
         return (
             <div className="container">
                 {this.renderHeader()}
-                <div className="row">
+                <div className="row paddingleft">
                     <div className="col-xs-10 col-xs-offset-1">
                         {this.props.children}
                     </div>

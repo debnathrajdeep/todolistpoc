@@ -4,6 +4,7 @@
  * @author:RapidValue
  */
 import React, { Component } from 'react'
+import '../../style.css';
 
 export default class CreateTodo extends Component {
     constructor(props) {
@@ -53,28 +54,30 @@ export default class CreateTodo extends Component {
     render() {
         return (
             <form onSubmit={this.handleCreate.bind(this)}>
-                <div className="container">
+                <div className="container paddingTopAlign">  
+                <div className="row"></div> 
+                <div className="row"></div>             
                     <div className="row">
-                        <div className="col-md-2">
+                        <div className="col-md-1">
                             <label>Title :</label>
                         </div>
 
-                        <div className="col-md-2">
-                            <input name="title" type="text" placeholder="Title" ref="createInputOfTitle"/>                            
+                        <div className="col-md-4">
+                            <input name="title" className="form-control" type="text" placeholder="Title" ref="createInputOfTitle"/>                            
                             <span>{this.state.errorMessage}</span>
                         </div>
 
-                        <div className="col-md-2">
+                        <div className="col-md-1">
                             <label>Date :</label>
                         </div>
 
                         <div className="col-md-2">
-                            <input name="date" type="text" placeholder="Time" ref="inputTime" />
+                            <input name="date"  className="form-control" type="text" placeholder="Time" ref="inputTime" />
                             <span>{this.state.timeError}</span>
                         </div>
 
-                        <div className="col-md-4">
-                            <button className="btn btn-primary btn btn-md" id="submitButton">Create</button>
+                        <div className="col-md-2">
+                            <button className="btn btn-primary btn btn-md nc-icon nc-ic_check_48px"  id="submitButton">Create</button>
                         </div>
                     </div>
                 </div>

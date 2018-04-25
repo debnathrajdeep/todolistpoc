@@ -1,0 +1,26 @@
+
+
+
+
+paddingTopMax{
+  padding-top: 15px;
+}
+
+   nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+  nav li { display: inline-block; }
+  
+    nav a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: white !important;
+    }
+  
+
+  @import "../../../src/POC/iconfont/css/style";
+@import "../node_modules/bootstrap/scss/bootstrap";

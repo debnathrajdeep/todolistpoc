@@ -31,7 +31,8 @@ export default class TodosList extends React.Component {
 
     render() {
         return (
-            <div className="container my-div">
+            <div className="container my-div paddingTopAlign paddingTopMax">
+                <h2>Todo List</h2>
                 <table className="table table-striped">
                     <TodosListHeader />
                     <tbody>

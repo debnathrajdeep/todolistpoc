@@ -1,0 +1,24 @@
+.center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 150px;  
+  }
+
+  .imgCenter{
+      align-content: center;
+  }
+
+  .paddingTopAlign{
+      padding-top: 20px;
+  }
+
+  .imagesize{
+      width:90%;
+      height:85%;
+      padding:2%;
+  }
+  paddingleft{
+    padding-left:35px;
+  }
