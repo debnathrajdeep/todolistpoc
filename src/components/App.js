@@ -4,12 +4,12 @@
  * @author:RapidValue
  */
 import React, { Component } from 'react';
-import TodosList from '../components/Todos/todosList'
+import TodosList from '../components/Todos/todoslist'
 import CreateTodo from '../components/Todos/create-todo'
 import _ from 'lodash'
 import Todo from '../components/Todos/todo'
-import Home from '../components/Home/Home'
-import Root from '../Root'
+import Home from '../components/Home/home'
+import Root from '../root'
 import Login from '../components/Login/login'
 import { browserHistory, Router, Route, IndexRoute, Link, Switch } from 'react-router'
 

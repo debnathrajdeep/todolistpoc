@@ -6,6 +6,7 @@
 import React, { Component } from 'react'
 import DateTimePicker from 'react-datetime-picker';
 
+const url="http://localhost:49347/api/Todoes/CreateTodo";
 export default class CreateTodo extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +14,21 @@ export default class CreateTodo extends Component {
             timeError: '', errorMessage: ""
         };
     };
+
+    postData = (url, productData) => {
+        fetch(url, {
+        method: 'POST',
+        headers: {
+        
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productData)
+        })
+        .then((response) => response.json())
+        .then((responseData) => { console.log("response: " + responseData); })
+        .catch((err) => { console.log(err); });
+        } 
 
     validate = () => {
         debugger;
@@ -40,12 +56,14 @@ export default class CreateTodo extends Component {
         return isError;
     }
 
+    
     handleCreate(event) {
-        debugger;
+       
         event.preventDefault();
         const error = this.validate();
         if (!error) {
-            this.props.createTask(this.refs.createInputOfTitle.value, this.refs.inputTime.value);
+           this.postData(url,{title:this.refs.createInputOfTitle.value, time:this.refs.inputTime.value })
+            //this.props.createTask(this.refs.createInputOfTitle.value, this.refs.inputTime.value);
             console.log(this.state.selectValue);
             this.refs.createInputOfTitle.value = '';
         }

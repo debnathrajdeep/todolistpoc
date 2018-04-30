@@ -7,16 +7,16 @@ import React from 'react'
 import _ from 'lodash'
 import TodosList from './todosList'
 import CreateTodo from './create-todo'
-import Data from './data'
 import { browserHistory } from 'react-router'
+
 
 export default class Todo extends React.Component {
     constructor(props) {
-        super(props);
-        let todos = Data.getData();
-        this.state = {
-            todos
-        }
+        super(props);       
+      this.state={
+            todos:[]
+       } 
+       
     }
 
     onNavigateHome() {
@@ -27,7 +27,7 @@ export default class Todo extends React.Component {
         return (
             <div>
                 <CreateTodo createTask={(title, time) => this.createTask(title, time)} />
-                <TodosList todos={this.state.todos}
+                <TodosList 
                     saveTitle={this.saveTitle.bind(this)}
                     deleteTitle={this.deleteTitle.bind(this)} />
                 <button onClick={this.onNavigateHome} className="btn btn-primary">Go Home!</button>
@@ -40,14 +40,15 @@ export default class Todo extends React.Component {
             Title,
             DateandTime
         });
-        this.setState({
-            todos: this.state.todos
-        });
+        
     }
 
     saveTitle(oldTitle, newTitle) {
-        const foundTodo = _.find(this.state.todos, todo => todo.Title === oldTitle);
+        console.log(this.state.todos);
+        let foundTodo = _.find(this.state.todos, todo => todo.Title === oldTitle);
+        console.log(foundTodo);
         foundTodo.Title = newTitle;
+        postData(url, foundTodo);
         this.setState({ todos: this.state.todos });
     }
 
@@ -57,4 +58,6 @@ export default class Todo extends React.Component {
             todos: this.state.todos
         });
     }
+
+   
 }

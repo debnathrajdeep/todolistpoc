@@ -11,12 +11,40 @@ export default class TodosListItem extends React.Component {
         super(props);
         this.state = {
             isEditing: false,
-            titleError: ""
+            titleError: "",
+            title:""
         };
+    }
+
+    validate = () => {
+        debugger;
+        let isError = false;
+        const errors = {
+            errorMessage: "",
+            timeErrorMessage: ""
+        };
+        let title = this.refs.createInputOfTitle.value.length;
+        let time = this.refs.inputTime.value.length;
+
+        if (title < 5) {
+            isError = true;
+            errors.errorMessage = 'title must be more than 5 char';
+        }
+
+        if (time == 0) {
+            errors.timeErrorMessage = 'please enter time';
+        }
+
+        this.setState({
+            errorMessage: errors.errorMessage,
+            timeError: errors.timeErrorMessage
+        });
+        return isError;
     }
 
     renderTitleSection() {
         const { title, date } = this.props; //Destructuring
+        
         if (this.state.isEditing) {
             return (
                 <td>
@@ -50,7 +78,7 @@ export default class TodosListItem extends React.Component {
         return (
             <tr>
                 {this.renderTitleSection()}
-                <td>{this.props.date}</td>
+                <td>{this.props.date}<input type="hidden" value={this.props.id}></input></td>
                 {this.renderActioonsSections()}
             </tr>
         );
@@ -71,11 +99,13 @@ export default class TodosListItem extends React.Component {
 
     onSaveClick(event) {
         event.preventDefault();
-        const error = validate();
+        const error = false ;//this.validate();
+        var a = {id: this.props.id, 
+                        Title: this.refs.editInput.value,
+                        time: this.props.date
+                };
         if (!error) {
-            const oldTitle = this.props.title;
-            const newTitle = this.refs.editInput.value;
-            this.props.saveTitle(oldTitle, newTitle);
+            this.props.saveTitle(a);
             this.setState({ isEditing: false });
         }
     }

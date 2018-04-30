@@ -4,7 +4,7 @@
  * @author:RapidValue
  */
 import React from 'react';
-import RecentTodoList from './RecentTodos';
+import RecentTodoList from './recent-todos';
 
 export default class ListItems extends React.Component {
     render() {
